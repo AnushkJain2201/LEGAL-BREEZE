@@ -152,7 +152,7 @@ create table bid_applicants
     constraint fk_bid_applicants_bids foreign key (bid_id) references bids (bid_id),
     constraint fk_bid_applicants_users foreign key (applicant_id) references users (user_id)
 );
-#################  applicant_bids-end ##############
+#################  bid_applicants-end ##############
 
 
 #################  cases-start ##############

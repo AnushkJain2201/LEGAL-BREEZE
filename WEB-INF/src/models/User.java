@@ -8,9 +8,9 @@ public class User {
     private String name;
     private String email;
     private String password;
+    private String phone;
     private String address;
-    private String pincode;
-    private Country country;
+    private String pin;
     private State state;
     private Gender gender;
     private UserType userType;
@@ -23,15 +23,13 @@ public class User {
     private Integer casesWon;
     private Integer successRatio;
     private Status status;
-    private Integer aadharId;
+    private String uid;
 
-    
     // ################### Constructors #########################
     public User() {
 
     }
 
-    
     // ################### Getters-Setters #########################
     public Integer getUserId() {
         return userId;
@@ -65,6 +63,14 @@ public class User {
         this.password = password;
     }
 
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
     public String getAddress() {
         return address;
     }
@@ -73,20 +79,12 @@ public class User {
         this.address = address;
     }
 
-    public String getPincode() {
-        return pincode;
+    public String getPin() {
+        return pin;
     }
 
-    public void setPincode(String pincode) {
-        this.pincode = pincode;
-    }
-
-    public Country getCountry() {
-        return country;
-    }
-
-    public void setCountry(Country country) {
-        this.country = country;
+    public void setPin(String pin) {
+        this.pin = pin;
     }
 
     public State getState() {
@@ -185,11 +183,11 @@ public class User {
         this.status = status;
     }
 
-    public Integer getAadharId() {
-        return aadharId;
+    public String getUid() {
+        return uid;
     }
 
-    public void setAadharId(Integer aadharId) {
-        this.aadharId = aadharId;
+    public void setUid(String uid) {
+        this.uid = uid;
     }
 }

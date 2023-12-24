@@ -1,23 +1,23 @@
 package models;
 
-public class ApplicantBid {
+public class BidApplicant {
     // ################### Properties #########################
-    private Integer applicantBidId;
+    private Integer bidApplicantId;
     private Bid bid;
     private User user;
 
     // ################### Constructors #########################
-    public ApplicantBid() {
+    public BidApplicant() {
 
     }
     // ################### Getters-Setters #########################
 
-    public Integer getApplicantBidId() {
-        return applicantBidId;
+    public Integer getBidApplicantId() {
+        return bidApplicantId;
     }
 
-    public void setApplicantBidId(Integer applicantBidId) {
-        this.applicantBidId = applicantBidId;
+    public void setBidApplicantId(Integer bidApplicantId) {
+        this.bidApplicantId = bidApplicantId;
     }
 
     public Bid getBid() {

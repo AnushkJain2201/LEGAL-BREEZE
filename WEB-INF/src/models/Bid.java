@@ -1,25 +1,25 @@
 package models;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class Bid {
     // ################### Properties #########################
     private Integer bidId;
     private String issue;
     private String description;
+    private Integer hearings;
     private Status status;
     private Integer budget;
-    private Timestamp deadline;
+    private Date startDate;
+    private Date deadline;
     private Integer noOfApplicants;
     private User user;
 
-    
     // ################### Constructors #########################
     public Bid() {
 
     }
-    
-    
+
     // ################### Getters-Setters #########################
     public Integer getBidId() {
         return bidId;
@@ -61,11 +61,11 @@ public class Bid {
         this.budget = budget;
     }
 
-    public Timestamp getDeadline() {
+    public Date getDeadline() {
         return deadline;
     }
 
-    public void setDeadline(Timestamp deadline) {
+    public void setDeadline(Date deadline) {
         this.deadline = deadline;
     }
 
@@ -83,6 +83,22 @@ public class Bid {
 
     public void setUser(User user) {
         this.user = user;
+    }
+
+    public Integer getHearings() {
+        return hearings;
+    }
+
+    public void setHearings(Integer hearings) {
+        this.hearings = hearings;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
     }
 
 }

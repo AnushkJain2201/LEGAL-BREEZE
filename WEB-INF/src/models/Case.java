@@ -1,6 +1,6 @@
 package models;
 
-import java.sql.Timestamp;
+import java.sql.Date;
 
 public class Case {
     // ################### Properties #########################
@@ -8,8 +8,8 @@ public class Case {
     private String issue;
     private String description;
     private User user;
-    private Timestamp dateStart;
-    private Timestamp dateEnd;
+    private Date startDate;
+    private Date endDate;
     private Status status;
 
     // ################### Constructors #########################
@@ -50,21 +50,7 @@ public class Case {
         this.user = user;
     }
 
-    public Timestamp getDateStart() {
-        return dateStart;
-    }
-
-    public void setDateStart(Timestamp dateStart) {
-        this.dateStart = dateStart;
-    }
-
-    public Timestamp getDateEnd() {
-        return dateEnd;
-    }
-
-    public void setDateEnd(Timestamp dateEnd) {
-        this.dateEnd = dateEnd;
-    }
+    
 
     public Status getStatus() {
         return status;
@@ -72,6 +58,22 @@ public class Case {
 
     public void setStatus(Status status) {
         this.status = status;
+    }
+
+    public Date getStartDate() {
+        return startDate;
+    }
+
+    public void setStartDate(Date startDate) {
+        this.startDate = startDate;
+    }
+
+    public Date getEndDate() {
+        return endDate;
+    }
+
+    public void setEndDate(Date endDate) {
+        this.endDate = endDate;
     }
 
 }
