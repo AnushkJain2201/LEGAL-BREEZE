@@ -44,7 +44,7 @@ create table countries
 (
     country_id int auto_increment primary key,
     name char(50) not null,
-    isd code char(10) not null
+    isd_code char(10) not null
 );
 #################  countries-end ##############
 
@@ -133,7 +133,7 @@ create table bids
     hearings int not null default 0,
     status_id int not null default 3,
     budget int not null,
-    start_date date not null
+    start_date date not null,
     deadline date null,
     no_of_applicants int not null default 0,
     user_id int not null,
@@ -167,6 +167,6 @@ create table cases
     end_date date null,
     status_id int not null default 3,
     constraint fk_cases_clients foreign key (client_id) references users (user_id),
-    constraint fk_cases_lawyers foreign key (lawyer_id) references users (user_id), 
+    constraint fk_cases_lawyers foreign key (lawyer_id) references users (user_id)
 );
 #################  cases-end ##############

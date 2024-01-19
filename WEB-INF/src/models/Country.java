@@ -11,6 +11,9 @@ public class Country {
 
     }
 
+    public Country(Integer countryId){
+        this.countryId = countryId;
+    }
     // ################### Getters-Setters #########################
     public int getCountryId() {
         return countryId;

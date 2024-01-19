@@ -30,6 +30,21 @@ public class User {
 
     }
 
+    public User(String name, String email, String password, String phone, State state) {
+        this.name = name;
+        this.email = email;
+        this.password = password;
+        this.phone = phone;
+        this.state = state;
+    }
+    
+    // ################### Getters-Setters #########################
+    public boolean signInUser(){
+        boolean flag = true;
+
+        return flag;
+    }
+
     // ################### Getters-Setters #########################
     public Integer getUserId() {
         return userId;
