@@ -11,9 +11,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletContext;
 
 import utils.AppUtility;
+import utils.EmailSender;
+import utils.OTPGenerator;
+
 import models.State;
 import models.User;
 import models.UserType;
+
 
 @WebServlet("/signup.do")
 public class SignupServlet extends HttpServlet {
@@ -50,8 +54,10 @@ public class SignupServlet extends HttpServlet {
 
             User user = new User(name, email, password, phone, new State(stateId), new UserType(userTypeId));
             flag = user.signUpUser();
+            String otp = OTPGenerator.generateOTP();
             if (flag) {
                 // send email
+                EmailSender.sendAccountVerificationEmail(email,otp);
                 session.setAttribute("user", user);
                 nextURL = "signup_success.jsp";
             }

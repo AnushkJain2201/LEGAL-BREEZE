@@ -6,8 +6,13 @@ import java.sql.Timestamp;
 import java.util.Date;
 
 import javax.json.Json;
+import javax.servlet.ServletContext;
 
 public class AppUtility {
+    public static ServletContext appContext;
+    public static String fromEmail;
+    public static String fromEmailPassword;
+
     public static boolean checkGoogleRecaptchaResponse(String recaptchaURL, String responseToken, String secretKey) throws IOException{
         boolean flag=true;
         String url = recaptchaURL+ "?secret=" + secretKey + "&response=" + responseToken;
