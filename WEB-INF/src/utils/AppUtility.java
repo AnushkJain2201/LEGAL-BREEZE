@@ -2,6 +2,8 @@ package utils;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.sql.Timestamp;
+import java.util.Date;
 
 import javax.json.Json;
 
@@ -13,5 +15,8 @@ public class AppUtility {
 
         flag = Json.createReader(is).readObject().getBoolean("success");
         return flag;
+    }
+    public static Timestamp getTodayDateTime(){
+        return new java.sql.Timestamp(new Date().getTime());
     }
 }

@@ -6,10 +6,13 @@ public class UserType {
     private String name;
 
     // ################### Constructors #########################
-    public UserType(){
-        
+    public UserType() {
+
     }
-    
+
+    public UserType(Integer userTypeId) {
+        this.userTypeId = userTypeId;
+    }
 
     // ################### Getters-Setters #########################
     public int getUserTypeId() {
@@ -26,5 +29,5 @@ public class UserType {
 
     public void setName(String name) {
         this.name = name;
-    }    
+    }
 }

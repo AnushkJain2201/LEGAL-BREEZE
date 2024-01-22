@@ -18,6 +18,8 @@ create table user_types
     user_type_id int auto_increment primary key,
     name char(10) not null
 );
+
+insert into user_types (name) values ('Seeker'),('Provider');
 ################# user_types-end ##############
 
 
@@ -36,6 +38,7 @@ create table status
     status_id int auto_increment primary key,
     name char(15) not null
 );
+insert into status (name) values ('Active'),('Inactive'),('Open'),('Closed'),('Blocked');
 #################  status-end ##############
 
 
@@ -75,6 +78,7 @@ create table badges
     badge_id int auto_increment primary key,
     name char(15) not null
 );
+insert into badges (name) values ('Bronze'),('Silver'),('Gold'),('Platinum');
 #################  badges-end ##############
 
 

@@ -1,6 +1,12 @@
 package models;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 import java.sql.Timestamp;
+
+import utils.AppUtility;
 
 public class User {
     // ################### Properties #########################
@@ -30,18 +36,41 @@ public class User {
 
     }
 
-    public User(String name, String email, String password, String phone, State state) {
+    public User(String name, String email, String password, String phone, State state, UserType userType) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.phone = phone;
         this.state = state;
+        this.userType = userType;
     }
-    
-    // ################### Getters-Setters #########################
-    public boolean signInUser(){
-        boolean flag = true;
 
+    // ################### Getters-Setters #########################
+    public boolean signUpUser() {
+        boolean flag = false;
+        // Date date = new Date().getTime()
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lbdb?user=root&password=1234");
+            String query = "insert into users (name,email,password,phone,state_id,user_type_id,joined_on) values (?,?,?,?,?,?,?)";
+            PreparedStatement ps = con.prepareStatement(query);
+            System.out.println(name + " " + email + " " + password + " " + phone + " " + state.getStateId() + userType.getUserTypeId() +" "+ AppUtility.getTodayDateTime());
+            ps.setString(1, name);
+            ps.setString(2, email);
+            ps.setString(3, password);
+            ps.setString(4, phone);
+            ps.setInt(5, state.getStateId());
+            ps.setInt(6,  userType.getUserTypeId());
+            ps.setTimestamp(7,AppUtility.getTodayDateTime());
+
+            int res = ps.executeUpdate();
+            if (res == 1) {
+                flag = true;
+            }
+            con.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
         return flag;
     }
 

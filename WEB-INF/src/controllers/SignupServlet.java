@@ -13,12 +13,13 @@ import javax.servlet.ServletContext;
 import utils.AppUtility;
 import models.State;
 import models.User;
+import models.UserType;
 
 @WebServlet("/signup.do")
 public class SignupServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         String nextURL = "signup.jsp";
-        
+
         request.getRequestDispatcher(nextURL).forward(request, response);
     }
 
@@ -40,17 +41,19 @@ public class SignupServlet extends HttpServlet {
         String nextURL = "signup.jsp";
 
         if (flag) {
-            String name = request.getParameter("username");
+            String name = request.getParameter("name");
             String password = request.getParameter("password");
             String email = request.getParameter("email");
-            String phone =request.getParameter("phone");
+            String phone = request.getParameter("phone");
             int stateId = Integer.parseInt(request.getParameter("state"));
+            Integer userTypeId = Integer.parseInt(request.getParameter("user_type_id"));
 
-            User user = new User(name, email, password, phone, new State(stateId));
-            if(user.signInUser()){
+            User user = new User(name, email, password, phone, new State(stateId), new UserType(userTypeId));
+            flag = user.signUpUser();
+            if (flag) {
                 // send email
                 session.setAttribute("user", user);
-                nextURL = "signin.jsp";
+                nextURL = "signup_success.jsp";
             }
         }
         request.getRequestDispatcher(nextURL).forward(request, response);
