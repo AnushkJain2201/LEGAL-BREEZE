@@ -30,29 +30,62 @@ public class User {
     private Integer successRatio;
     private Status status;
     private String uid;
+    
+
+    private String otp;
 
     // ################### Constructors #########################
     public User() {
 
     }
 
-    public User(String name, String email, String password, String phone, State state, UserType userType) {
+    public User(String name, String email, String password, String phone, State state, UserType userType,String otp) {
         this.name = name;
         this.email = email;
         this.password = password;
         this.phone = phone;
         this.state = state;
         this.userType = userType;
+        this.otp = otp;
     }
 
     // ################### Getters-Setters #########################
+    public static int verifyEmail(String email, String otp) {
+        int x = -1;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lbdb?user=root&password=1234");
+
+            String query = "update users set status_id=1,otp='' where email=? and otp=? and status_id!=1";
+
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, email);
+            ps.setString(2, otp);
+
+            int res = ps.executeUpdate();
+            System.out.println("Result of the update query" + res);
+            if (res == 1) {
+                System.out.println("email verification successful");
+                System.out.println("Updating flag value to true");
+                x = 1;
+            }else{
+                x = 0;
+                System.out.println("You are already verified");
+            }
+            
+            con.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return x;
+    }
     public boolean signUpUser() {
         boolean flag = false;
         // Date date = new Date().getTime()
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lbdb?user=root&password=1234");
-            String query = "insert into users (name,email,password,phone,state_id,user_type_id,joined_on) values (?,?,?,?,?,?,?)";
+            String query = "insert into users (name,email,password,phone,state_id,user_type_id,joined_on,otp) values (?,?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(query);
             System.out.println(name + " " + email + " " + password + " " + phone + " " + state.getStateId() + userType.getUserTypeId() +" "+ AppUtility.getTodayDateTime());
             ps.setString(1, name);
@@ -62,6 +95,7 @@ public class User {
             ps.setInt(5, state.getStateId());
             ps.setInt(6,  userType.getUserTypeId());
             ps.setTimestamp(7,AppUtility.getTodayDateTime());
+            ps.setString(8, otp);
 
             int res = ps.executeUpdate();
             if (res == 1) {
@@ -75,6 +109,13 @@ public class User {
     }
 
     // ################### Getters-Setters #########################
+    public String getOtp() {
+        return otp;
+    }
+
+    public void setOtp(String otp) {
+        this.otp = otp;
+    }
     public Integer getUserId() {
         return userId;
     }

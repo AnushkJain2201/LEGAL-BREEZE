@@ -52,9 +52,10 @@ public class SignupServlet extends HttpServlet {
             int stateId = Integer.parseInt(request.getParameter("state"));
             Integer userTypeId = Integer.parseInt(request.getParameter("user_type_id"));
 
-            User user = new User(name, email, password, phone, new State(stateId), new UserType(userTypeId));
-            flag = user.signUpUser();
             String otp = OTPGenerator.generateOTP();
+            System.out.println("Saving otp at the db for future email verification"+otp);
+            User user = new User(name, email, password, phone, new State(stateId), new UserType(userTypeId),otp);
+            flag = user.signUpUser();
             if (flag) {
                 // send email
                 EmailSender.sendAccountVerificationEmail(email,otp);
