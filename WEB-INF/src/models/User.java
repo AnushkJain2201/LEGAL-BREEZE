@@ -3,6 +3,7 @@ package models;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
@@ -49,7 +50,26 @@ public class User {
         this.otp = otp;
     }
 
-    // ################### Getters-Setters #########################
+    // ################### Other Methods #########################
+    public static boolean checkPhoneExists(String phone){
+        boolean flag = false;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lbdb?user=root&password=1234");
+            String query = "select user_id from users where phone=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1,phone);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                System.out.println("Entry found");
+                flag = true;
+            }
+            con.close();
+        }catch(SQLException|ClassNotFoundException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
     public static int verifyEmail(String email, String otp) {
         int x = -1;
         try {

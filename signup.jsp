@@ -27,22 +27,46 @@
           <img src="static/img/download.jpg" alt="ricky-morty-image" />
           <h2>SIGNUP</h2>
           <div class="input-group">
-            <input type="text" name="name" id="name" required />
-            <label for="name">User Name</label>
+            <input
+              class="input-fields"
+              type="text"
+              name="name"
+              id="name"
+              required
+            />
+            <label class="input-labels" for="name">User Name</label>
           </div>
           <div class="input-group">
-            <input type="text" name="email" id="email" required />
-            <label for="email">Email</label>
+            <input
+              class="input-fields"
+              type="text"
+              name="email"
+              id="email"
+              required
+            />
+            <label class="input-labels" for="email">Email</label>
           </div>
           <div class="input-group">
-            <input type="password" name="password" id="password" required />
-            <label for="password">Password</label>
+            <input
+              class="input-fields"
+              type="password"
+              name="password"
+              id="password"
+              required
+            />
+            <label class="input-labels" for="password">Password</label>
           </div>
           <div class="input-group">
-            <input type="text" name="phone" id="phone" required />
-            <label for="phone">phone</label>
+            <input
+              class="input-fields"
+              type="text"
+              name="phone"
+              id="phone"
+              required
+            />
+            <label class="input-labels" for="phone">phone</label>
           </div>
-
+          <!-- Radio buttons start -->
           <div class="flex items-center mb-4">
             <input
               id="radio-1"
@@ -54,7 +78,7 @@
             <label
               for="radio-1"
               class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >Provider</label
+              >I am a service Provider</label
             >
           </div>
           <div class="flex items-center">
@@ -69,18 +93,19 @@
             <label
               for="radio-2"
               class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >Seeker</label
+              >I am a service Seeker</label
             >
           </div>
-
+          <!-- Radio buttons -->
           <div class="input-group">
+            <label for="state">state</label>
             <select name="state" id="state" required>
               <c:forEach var="state" items="${states}">
                 <option value="${state.stateId}">${state.name}</option>
               </c:forEach>
             </select>
-            <label for="state">state</label>
           </div>
+          <br />
           <div class="input-group">
             <div
               class="g-recaptcha"
@@ -91,5 +116,6 @@
         </form>
       </div>
     </main>
+    <script src="static/js/signup.js"></script>
   </body>
 </html>
