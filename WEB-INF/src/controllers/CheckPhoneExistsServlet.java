@@ -14,9 +14,6 @@ public class CheckPhoneExistsServlet extends HttpServlet{
         String phone = request.getParameter("phone");
         System.out.println("Recieved one: "+phone);
         boolean flag=User.checkPhoneExists(phone);
-        if(flag){
-            flag=true;
-        }
         response.getWriter().print(flag);
     }
 }

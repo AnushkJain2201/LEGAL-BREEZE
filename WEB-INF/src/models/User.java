@@ -51,6 +51,25 @@ public class User {
     }
 
     // ################### Other Methods #########################
+    public static boolean checkEmailExists(String email){
+        boolean flag = false;
+        try{
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/lbdb?user=root&password=1234");
+            String query = "select user_id from users where email=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            while(rs.next()){
+                flag = true;
+                System.out.println("Duplicate entry found");
+            }
+            con.close();
+        }catch(ClassNotFoundException|SQLException e){
+            e.printStackTrace();
+        }
+        return flag;
+    }
     public static boolean checkPhoneExists(String phone){
         boolean flag = false;
         try{

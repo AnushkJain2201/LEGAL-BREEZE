@@ -26,22 +26,43 @@ inputFields.forEach((el) => {
 // ----------------------------- Phone start -------------------------------
 const phone = document.querySelector("#phone");
 const checkPhoneExists = async (phone) => {
-  console.log("Entered mobile number is: " + phone);
+    console.log("Entered mobile number is: " + phone);
   const response = await fetch("check_phone_exists.do?phone=" + phone);
   const result = await response.text();
   console.log("Response recieved from server side: "+ result);
   return result;
 };
 phone.addEventListener("blur", () => {
-  checkPhoneExists(phone.value)
+    checkPhoneExists(phone.value)
     .then((data) => {
-      if (data== 'true') {
-        console.log("Duplicate exists");
-      } else {
-        console.log("Duplicate does not exists");
+        if (data== 'true') {
+            console.log("Duplicate exists");
+        } else {
+            console.log("Duplicate does not exists");
       }
     })
     .catch((err) => {
-      console.log(err);
+        console.log(err);
     });
 });
+// ----------------------------- Phone end -------------------------------
+
+// ----------------------------- Email start -------------------------------
+const email = document.querySelector('#email');
+const checkEmailExists = async (email)=>{
+    const response = await fetch('check_email_exists.do?email='+email);
+    const result = await response.text();
+    return result;
+}
+email.addEventListener('blur',()=>{
+    checkEmailExists(email.value).then((data)=>{
+        if(data == 'true'){
+            console.log("Duplicate exists");
+        }else{
+            console.log("Duplicate does not exists");
+        }
+    }).catch((err)=>{
+        console.log(err);
+    });
+});
+// ----------------------------- Email end -------------------------------
