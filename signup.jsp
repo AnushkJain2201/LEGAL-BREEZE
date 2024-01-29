@@ -21,9 +21,9 @@
     <main>
       <div class="login-wrapper">
         <form action="signup.do" class="form" method="post">
-          <!-- <a href="index.do"
+          <a href="index.do"
             ><i class="fa-solid fa-arrow-left" style="color: #ffffff"></i
-          ></a> -->
+          ></a>
           <img src="static/img/download.jpg" alt="ricky-morty-image" />
           <h2>SIGNUP</h2>
           <div class="input-group">

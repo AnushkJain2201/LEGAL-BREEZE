@@ -50,6 +50,11 @@ public class User {
         this.otp = otp;
     }
 
+    public User(String password,String email) {
+        this.password = password;
+        this.email = email;
+    }
+
     // ################### Other Methods #########################
     public static boolean checkEmailExists(String email){
         boolean flag = false;
@@ -118,6 +123,28 @@ public class User {
         }
         return x;
     }
+    public boolean signInUser() {
+        boolean flag = false;
+        // Date date = new Date().getTime()
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lbdb?user=root&password=1234");
+            String query = "select * from users where password=? and email=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, password);
+            ps.setString(2, email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                flag = true;
+            }
+            con.close();
+        } catch (SQLException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+        return flag;
+    }
+
+
     public boolean signUpUser() {
         boolean flag = false;
         // Date date = new Date().getTime()
