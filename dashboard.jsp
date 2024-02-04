@@ -22,7 +22,14 @@
     <c:import url="/header.jsp" />
 
     <main>
-      This is dashboard
+      
+      <div class="flex flex-row justify-around">
+        <div>This is dashboard</div>
+        <div>This is dashboard</div>
+        <div>This is dashboard</div>
+        <h1>7 Days of working implemented.</h1>
+        <h2>To start from day 8...</h2>
+      </div>
     </main>
 
     <c:import url="/footer.jsp" />
