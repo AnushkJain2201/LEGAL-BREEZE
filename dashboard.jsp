@@ -25,7 +25,7 @@
       <div class="flex flex-row justify-around">
         <!-- First div -->
         <div
-          class="bg-cyan-950 rounded-3xl mt-16 basis-1/4 flex flex-col justify-evenly pb-20 h-96"
+          class="bg-cyan-900 rounded-3xl mt-16 basis-1/4 flex flex-col justify-evenly pb-20 h-96 border-2"
         >
           <!-- Lawyer Dropdown -->
           <div class="text-center pt-4 mt-2">
@@ -346,8 +346,10 @@
           </div>
         </div>
         <!-- Second div -->
-        <div class="mx-10 bg-cyan-950 rounded-3xl mt-16 text-center basis-1/2">
-          <!-- Modal -->
+        <div
+          class="mx-10 bg-cyan-900 rounded-3xl mt-16 pb-7 text-center basis-1/2 border-2 mb-44"
+        >
+          <!-- ############################ Modal ############################## -->
           <div>
             <!-- Modal toggle -->
             <button
@@ -377,11 +379,14 @@
                   <div
                     class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
                   >
-                    <h3
-                      class="text-xl font-semibold text-gray-900 dark:text-white"
-                    >
-                      Enter Bid Details
-                    </h3>
+                    <div class="">
+                      <h3
+                        class="text-xl font-semibold text-gray-900 dark:text-white"
+                      >
+                        Enter Bid Details
+                      </h3>
+                    </div>
+
                     <button
                       type="button"
                       class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
@@ -411,7 +416,7 @@
                       <div>
                         <label
                           for="name"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                           >Name</label
                         >
                         <input
@@ -426,7 +431,7 @@
                       <div>
                         <label
                           for="email"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                           >Email</label
                         >
                         <input
@@ -441,7 +446,7 @@
                       <div>
                         <label
                           for="issue"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                           >Issue</label
                         >
                         <input
@@ -456,7 +461,7 @@
                       <div>
                         <label
                           for="description"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                           >Description</label
                         >
                         <input
@@ -471,7 +476,7 @@
                       <div>
                         <label
                           for="budget"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                           >Budget</label
                         >
                         <input
@@ -486,7 +491,7 @@
                       <div>
                         <label
                           for="deadline"
-                          class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
                           >Deadline</label
                         >
                         <input
@@ -557,18 +562,52 @@
               </div>
             </div>
           </div>
+          <!-- ############################ Modal ############################## -->
+
           <!-- Main Bid Display Section (Accordions) -->
-          <div class="p-8 mb-10 w-full">
-            <div id="accordion-collapse" data-accordion="collapse">
-              <h2 id="accordion-collapse-heading-1">
+          <div class="p-8 mb-10 w-full flex-col space-evenly">
+            <!-- ############################Accordion-1 ############################## -->
+            <div
+              id="accordion-collapse-1"
+              data-accordion="collapse"
+              class="mb-3"
+            >
+              <h2 id="accordion-collapse-heading-1 ">
                 <button
                   type="button"
-                  class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-t-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                  class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
                   data-accordion-target="#accordion-collapse-body-1"
                   aria-expanded="true"
                   aria-controls="accordion-collapse-body-1"
                 >
-                  <span></span>
+                  <div class="flex flex-col">
+                    <div class="flex flex-row">
+                      <p>
+                        <span class="font-serif font-bold pe-5"
+                          >SUBJECT :
+                        </span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit
+                      </p>
+                    </div>
+
+                    <br />
+                    <div class="flex flex-row">
+                      <p>
+                        <span class="font-serif font-bold pe-5"
+                          >Description:</span
+                        >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit
+                      </p>
+                    </div>
+                    <br />
+                    <div class="flex flex-row">
+                      <p>
+                        <span class="font-serif font-bold pe-5"
+                          >Total Applicants:</span
+                        >30
+                      </p>
+                    </div>
+                  </div>
                   <svg
                     data-accordion-icon
                     class="w-3 h-3 rotate-180 shrink-0"
@@ -589,34 +628,125 @@
               </h2>
               <div
                 id="accordion-collapse-body-1"
-                class="hidden"
+                class="hidden mt-3 mb-4"
                 aria-labelledby="accordion-collapse-heading-1"
               >
                 <div
-                  class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900"
+                  class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900 rounded-xl flex flex-row justify-stretch"
                 >
-                  <p class="mb-2 text-gray-500 dark:text-gray-400">
-                    Flowbite is an open-source library of interactive components
-                    built on top of Tailwind CSS including buttons, dropdowns,
-                    modals, navbars, and more.
-                  </p>
-                  <p class="text-gray-500 dark:text-gray-400">
-                    Check out this guide to learn how to
-                    <a
-                      href="/docs/getting-started/introduction/"
-                      class="text-blue-600 dark:text-blue-500 hover:underline"
-                      >get started</a
-                    >
-                    and start developing websites even faster with components on
-                    top of Tailwind CSS.
-                  </p>
+                  <div class="basis-1/3 m-3">
+                    <img
+                      src="static/img/download.jpg"
+                      alt="Lawyer Image"
+                      class="h-28 w-28"
+                    />
+                  </div>
+                  <div class="flex flex-col basis-2/3 me-20 justify-around">
+                    <p class="text-gray-500 dark:text-gray-400"></p>
+                    <p class="text-gray-300">Sam Manekshaw</p>
+                    <p class="text-gray-500"><span>Fees : </span> 10,000/-</p>
+                    <input
+                      type="button"
+                      value="HIRE"
+                      class="text-gray-400 bg-slate-800 rounded-3xl"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
+            <!-- ############################Accordion-1 ############################## -->
+
+            <!-- ############################Acordionc-2 ############################## -->
+            <div id="accordion-collapse-2" data-accordion="collapse" class="">
+              <h2 id="accordion-collapse-heading-2 ">
+                <button
+                  type="button"
+                  class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
+                  data-accordion-target="#accordion-collapse-body-2"
+                  aria-expanded="true"
+                  aria-controls="accordion-collapse-body-2"
+                >
+                  <div class="flex flex-col">
+                    <div class="flex flex-row">
+                      <p>
+                        <span class="font-serif font-bold pe-5"
+                          >SUBJECT :
+                        </span>
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit
+                      </p>
+                    </div>
+
+                    <br />
+                    <div class="flex flex-row">
+                      <p>
+                        <span class="font-serif font-bold pe-5"
+                          >Description:</span
+                        >
+                        Lorem ipsum dolor sit amet consectetur adipisicing elit
+                      </p>
+                    </div>
+                    <br />
+                    <div class="flex flex-row">
+                      <p>
+                        <span class="font-serif font-bold pe-5"
+                          >Total Applicants:</span
+                        >30
+                      </p>
+                    </div>
+                  </div>
+                  <svg
+                    data-accordion-icon
+                    class="w-3 h-3 rotate-180 shrink-0"
+                    aria-hidden="true"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 10 6"
+                  >
+                    <path
+                      stroke="currentColor"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5 5 1 1 5"
+                    />
+                  </svg>
+                </button>
+              </h2>
+              <div
+                id="accordion-collapse-body-2"
+                class="hidden mt-3 mb-4"
+                aria-labelledby="accordion-collapse-heading-2"
+              >
+                <div
+                  class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900 rounded-xl flex flex-row justify-stretch"
+                >
+                  <div class="basis-1/3 m-3">
+                    <img
+                      src="static/img/download.jpg"
+                      alt="Lawyer Image"
+                      class="h-28 w-28"
+                    />
+                  </div>
+                  <div class="flex flex-col basis-2/3 me-20 justify-around">
+                    <p class="text-gray-500 dark:text-gray-400"></p>
+                    <p class="text-gray-300">Sam Manekshaw</p>
+                    <p class="text-gray-500"><span>Fees : </span> 10,000/-</p>
+                    <input
+                      type="button"
+                      value="HIRE"
+                      class="text-gray-400 bg-slate-800 rounded-3xl"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- ############################Accordion-2 ############################## -->
           </div>
         </div>
         <!-- Third div -->
-        <div class="bg-cyan-950 rounded-3xl mt-16 p-8 basis-1/4">
+        <div
+          class="bg-cyan-900 rounded-3xl mt-16 p-8 basis-1/4 h-full border-2"
+        >
           <h1>Chat Section</h1>
         </div>
       </div>

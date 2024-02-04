@@ -1,8 +1,6 @@
 <header>
   <nav class="bg-gray-900 border-gray-200 dark:bg-gray-900">
-    <div
-      class="flex flex-wrap items-center justify-between mx-auto p-4"
-    >
+    <div class="flex flex-wrap items-center justify-between mx-auto p-4">
       <a
         href="index.do"
         class="flex items-center space-x-3 rtl:space-x-reverse"
@@ -135,9 +133,9 @@
           </li>
           <li>
             <a
-              href="#"
+              href="dashboard.jsp"
               class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-blue-700 md:p-0 md:dark:hover:text-blue-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700"
-              >About</a
+              >Dashboard</a
             >
           </li>
           <li>
