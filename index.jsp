@@ -22,8 +22,8 @@
     <c:import url="/header.jsp" />
 
     <main>
-      <h1>8 Days of working implemented.</h1>
-        <h2>To start from day 9...</h2>
+      <h1>9 Days of working implemented.</h1>
+        <h2>To start from day 10...</h2>
       <div id="default-carousel" class="relative w-full" data-carousel="slide">
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
@@ -38,7 +38,7 @@
           <!-- Item 2 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="/docs/images/carousel/carousel-2.svg"
+              src="static/media/logos/legal-breeze-logo.png"
               class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
@@ -46,7 +46,7 @@
           <!-- Item 3 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="/docs/images/carousel/carousel-3.svg"
+              src="static/media/logos/legal-breeze-logo.png"
               class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
@@ -54,7 +54,7 @@
           <!-- Item 4 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="/docs/images/carousel/carousel-4.svg"
+              src="static/media/logos/legal-breeze-logo.png"
               class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />
@@ -62,7 +62,7 @@
           <!-- Item 5 -->
           <div class="hidden duration-700 ease-in-out" data-carousel-item>
             <img
-              src="/docs/images/carousel/carousel-5.svg"
+              src="static/media/logos/legal-breeze-logo.png"
               class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
               alt="..."
             />

@@ -1,7 +1,7 @@
 <footer
-  class="bg-white rounded-lg shadow dark:bg-gray-900 fixed flex items-center bottom-0 w-full"
+  class="bg-white rounded-lg shadow dark:bg-gray-900 flex items-center w-full pt-10"
 >
-  <div class="w-full mr-48">
+  <div class="w-full relative">
     <div class="sm:flex sm:items-center sm:justify-between">
       <a
         href="https://flowbite.com/"
