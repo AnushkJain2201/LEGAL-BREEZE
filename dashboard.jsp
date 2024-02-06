@@ -101,7 +101,7 @@
                     <label
                       for="item1"
                       class="w-full py-2 ms-2 text-sm font-medium text-gray-900 rounded dark:text-gray-300"
-                      >Criminal Lawyers</label
+                      ><a href="lawyers.do"> Criminal Lawyers</a></label
                     >
                   </div>
                 </li>
