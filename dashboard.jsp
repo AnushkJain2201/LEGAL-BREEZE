@@ -22,7 +22,7 @@
     <c:import url="/header.jsp" />
 
     <main>
-      <div class="flex flex-row">
+      <div class="flex flex-row space-x-6">
         <!-- First div -->
         <div
           class="bg-cyan-900 rounded-3xl md:mt-16 basis-1/4 flex-auto flex-col border-2 h-[100%]"
@@ -345,409 +345,248 @@
             </div>
           </div>
         </div>
+
         <!-- Second div -->
         <div
-          class="mx-10 bg-cyan-900 rounded-3xl md:mt-16 text-center basis-1/2 border-2"
+          class="bg-cyan-900 rounded-3xl md:mt-16 mt-5 text-center basis-1/2 border-2 flex flex-col"
         >
-          <div class="">
-            <!-- ############################ Modal ############################## -->
-            <div>
-              <!-- Modal toggle -->
-              <button
-                data-modal-target="authentication-modal"
-                data-modal-toggle="authentication-modal"
-                class="text-white bg-blue-950 hover:bg-blue-950 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm text-center dark:bg-blue-950 dark:hover:bg-blue-900 dark:focus:ring-blue-800 m-3 pb-3"
-                type="button"
-              >
-                <p class="font-mono ... text-3xl text-gray-200">
-                  !!! Start a Bid !!!
-                </p>
-              </button>
+          <!-- ############################ Modal -s ############################## -->
+          <div>
+            <!-- Modal toggle -->
+            <button
+              data-modal-target="authentication-modal"
+              data-modal-toggle="authentication-modal"
+              class="text-white bg-blue-950 hover:bg-blue-950 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-center dark:bg-blue-950 dark:hover:bg-blue-900 dark:focus:ring-blue-800 m-3 pb-3"
+              type="button"
+            >
+              <p class="font-mono ... text-4xl text-gray-200">
+                !!! Start a Bid !!!
+              </p>
+            </button>
 
-              <!-- Main modal -->
-              <div
-                id="authentication-modal"
-                tabindex="-1"
-                aria-hidden="true"
-                class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
-              >
-                <div class="relative p-4 w-full max-w-md max-h-full">
-                  <!-- Modal content -->
+            <!-- Main modal -->
+            <div
+              id="authentication-modal"
+              tabindex="-1"
+              aria-hidden="true"
+              class="hidden overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 justify-center items-center w-full md:inset-0 h-[calc(100%-1rem)] max-h-full"
+            >
+              <div class="relative p-4 w-full max-w-md max-h-full">
+                <!-- Modal content -->
+                <div
+                  class="relative bg-white rounded-lg shadow dark:bg-cyan-900"
+                >
+                  <!-- Modal header -->
                   <div
-                    class="relative bg-white rounded-lg shadow dark:bg-cyan-900"
+                    class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
                   >
-                    <!-- Modal header -->
-                    <div
-                      class="flex items-center justify-between p-4 md:p-5 border-b rounded-t dark:border-gray-600"
+                    <div class="">
+                      <h3
+                        class="text-xl font-semibold text-gray-900 dark:text-white"
+                      >
+                        Enter Bid Details
+                      </h3>
+                    </div>
+
+                    <button
+                      type="button"
+                      class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
+                      data-modal-hide="authentication-modal"
                     >
-                      <div class="">
-                        <h3
-                          class="text-xl font-semibold text-gray-900 dark:text-white"
+                      <svg
+                        class="w-3 h-3"
+                        aria-hidden="true"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 14 14"
+                      >
+                        <path
+                          stroke="currentColor"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                          stroke-width="2"
+                          d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
+                        />
+                      </svg>
+                      <span class="sr-only">Close modal</span>
+                    </button>
+                  </div>
+                  <!-- Modal body -->
+                  <div class="p-4 md:p-5">
+                    <form class="space-y-4" action="#">
+                      <div>
+                        <label
+                          for="name"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Name</label
                         >
-                          Enter Bid Details
-                        </h3>
+                        <input
+                          type="text"
+                          name="name"
+                          id="name"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                          placeholder="Sunil Kumar Batre"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="email"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Email</label
+                        >
+                        <input
+                          type="email"
+                          name="email"
+                          id="email"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                          placeholder="name@company.com"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="issue"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Issue</label
+                        >
+                        <input
+                          type="text"
+                          name="issue"
+                          id="issue"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                          placeholder="Case for retaliating"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="description"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Description</label
+                        >
+                        <input
+                          type="textarea"
+                          name="description"
+                          id="description"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                          placeholder="lorem ipsum dolor sit amet consectetur and consectetur adipiscing el elementum  "
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="budget"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Budget</label
+                        >
+                        <input
+                          type="number"
+                          name="budget"
+                          id="budget"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                          placeholder="100000"
+                          required
+                        />
+                      </div>
+                      <div>
+                        <label
+                          for="deadline"
+                          class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+                          >Deadline</label
+                        >
+                        <input
+                          type="date"
+                          name="deadline"
+                          id="deadline"
+                          class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
+                          placeholder=""
+                        />
                       </div>
 
                       <button
-                        type="button"
-                        class="end-2.5 text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
-                        data-modal-hide="authentication-modal"
+                        type="submit"
+                        class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
                       >
-                        <svg
-                          class="w-3 h-3"
-                          aria-hidden="true"
-                          xmlns="http://www.w3.org/2000/svg"
-                          fill="none"
-                          viewBox="0 0 14 14"
-                        >
-                          <path
-                            stroke="currentColor"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                            stroke-width="2"
-                            d="m1 1 6 6m0 0 6 6M7 7l6-6M7 7l-6 6"
-                          />
-                        </svg>
-                        <span class="sr-only">Close modal</span>
+                        Submit Bid
                       </button>
-                    </div>
-                    <!-- Modal body -->
-                    <div class="p-4 md:p-5">
-                      <form class="space-y-4" action="#">
-                        <div>
-                          <label
-                            for="name"
-                            class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            >Name</label
-                          >
-                          <input
-                            type="text"
-                            name="name"
-                            id="name"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            placeholder="Sunil Kumar Batre"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <label
-                            for="email"
-                            class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            >Email</label
-                          >
-                          <input
-                            type="email"
-                            name="email"
-                            id="email"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            placeholder="name@company.com"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <label
-                            for="issue"
-                            class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            >Issue</label
-                          >
-                          <input
-                            type="text"
-                            name="issue"
-                            id="issue"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            placeholder="Case for retaliating"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <label
-                            for="description"
-                            class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            >Description</label
-                          >
-                          <input
-                            type="textarea"
-                            name="description"
-                            id="description"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            placeholder="lorem ipsum dolor sit amet consectetur and consectetur adipiscing el elementum  "
-                            required
-                          />
-                        </div>
-                        <div>
-                          <label
-                            for="budget"
-                            class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            >Budget</label
-                          >
-                          <input
-                            type="number"
-                            name="budget"
-                            id="budget"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            placeholder="100000"
-                            required
-                          />
-                        </div>
-                        <div>
-                          <label
-                            for="deadline"
-                            class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                            >Deadline</label
-                          >
-                          <input
-                            type="date"
-                            name="deadline"
-                            id="deadline"
-                            class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                            placeholder=""
-                          />
-                        </div>
-                        <!-- <div>
-                      <label
-                        for="password"
-                        class="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                        >Your password</label
-                      >
-                      <input
-                        type="password"
-                        name="password"
-                        id="password"
-                        placeholder="••••••••"
-                        class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-600 dark:border-gray-500 dark:placeholder-gray-400 dark:text-white"
-                        required
-                      />
-                    </div> -->
-                        <!-- <div class="flex justify-between">
-                      <div class="flex items-start">
-                        <div class="flex items-center h-5">
-                          <input
-                            id="remember"
-                            type="checkbox"
-                            value=""
-                            class="w-4 h-4 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-600 dark:border-gray-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-                            required
-                          />
-                        </div>
-                        <label
-                          for="remember"
-                          class="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-                          >Remember me</label
-                        >
-                      </div>
-                      <a
-                        href="#"
-                        class="text-sm text-blue-700 hover:underline dark:text-blue-500"
-                        >Lost Password?</a
-                      >
-                    </div> -->
-                        <button
-                          type="submit"
-                          class="w-full text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                        >
-                          Submit Bid
-                        </button>
-                        <!-- <div
-                      class="text-sm font-medium text-gray-500 dark:text-gray-300"
-                    >
-                      Not registered?
-                      <a
-                        href="#"
-                        class="text-blue-700 hover:underline dark:text-blue-500"
-                        >Create account</a
-                      >
-                    </div> -->
-                      </form>
-                    </div>
+                    </form>
                   </div>
                 </div>
               </div>
-            </div>
-            <!-- ############################ Modal ############################## -->
-
-            <!-- Main Bid Display Section (Accordions) -->
-            <div class="p-8 mb-10 w-full flex-col space-evenly">
-              <!-- ############################Accordion-1 ############################## -->
-              <div
-                id="accordion-collapse-1"
-                data-accordion="collapse"
-                class="mb-3"
-              >
-                <h2 id="accordion-collapse-heading-1 ">
-                  <button
-                    type="button"
-                    class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                    data-accordion-target="#accordion-collapse-body-1"
-                    aria-expanded="true"
-                    aria-controls="accordion-collapse-body-1"
-                  >
-                    <div class="flex flex-col">
-                      <div class="flex flex-row">
-                        <p>
-                          <span class="font-serif font-bold pe-5"
-                            >SUBJECT :
-                          </span>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit
-                        </p>
-                      </div>
-
-                      <br />
-                      <div class="flex flex-row">
-                        <p>
-                          <span class="font-serif font-bold pe-5"
-                            >Description:</span
-                          >
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit
-                        </p>
-                      </div>
-                      <br />
-                      <div class="flex flex-row">
-                        <p>
-                          <span class="font-serif font-bold pe-5"
-                            >Total Applicants:</span
-                          >30
-                        </p>
-                      </div>
-                    </div>
-                    <svg
-                      data-accordion-icon
-                      class="w-3 h-3 rotate-180 shrink-0"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5 5 1 1 5"
-                      />
-                    </svg>
-                  </button>
-                </h2>
-                <div
-                  id="accordion-collapse-body-1"
-                  class="hidden mt-3 mb-4"
-                  aria-labelledby="accordion-collapse-heading-1"
-                >
-                  <div
-                    class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900 rounded-xl flex flex-row justify-stretch"
-                  >
-                    <div class="basis-1/3 m-3">
-                      <img
-                        src="static/img/download.jpg"
-                        alt="Lawyer Image"
-                        class="h-28 w-28"
-                      />
-                    </div>
-                    <div class="flex flex-col basis-2/3 me-20 justify-around">
-                      <p class="text-gray-500 dark:text-gray-400"></p>
-                      <p class="text-gray-300">Sam Manekshaw</p>
-                      <p class="text-gray-500"><span>Fees : </span> 10,000/-</p>
-                      <input
-                        type="button"
-                        value="HIRE"
-                        class="text-gray-400 bg-slate-800 rounded-3xl"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- ############################Accordion-1 ############################## -->
-
-              <!-- ############################Acordionc-2 ############################## -->
-              <div id="accordion-collapse-2" data-accordion="collapse" class="">
-                <h2 id="accordion-collapse-heading-2 ">
-                  <button
-                    type="button"
-                    class="flex items-center justify-between w-full p-5 font-medium rtl:text-right text-gray-500 border border-b-0 border-gray-200 rounded-xl focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-800 dark:border-gray-700 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 gap-3"
-                    data-accordion-target="#accordion-collapse-body-2"
-                    aria-expanded="true"
-                    aria-controls="accordion-collapse-body-2"
-                  >
-                    <div class="flex flex-col">
-                      <div class="flex flex-row">
-                        <p>
-                          <span class="font-serif font-bold pe-5"
-                            >SUBJECT :
-                          </span>
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit
-                        </p>
-                      </div>
-
-                      <br />
-                      <div class="flex flex-row">
-                        <p>
-                          <span class="font-serif font-bold pe-5"
-                            >Description:</span
-                          >
-                          Lorem ipsum dolor sit amet consectetur adipisicing
-                          elit
-                        </p>
-                      </div>
-                      <br />
-                      <div class="flex flex-row">
-                        <p>
-                          <span class="font-serif font-bold pe-5"
-                            >Total Applicants:</span
-                          >30
-                        </p>
-                      </div>
-                    </div>
-                    <svg
-                      data-accordion-icon
-                      class="w-3 h-3 rotate-180 shrink-0"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 10 6"
-                    >
-                      <path
-                        stroke="currentColor"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        stroke-width="2"
-                        d="M9 5 5 1 1 5"
-                      />
-                    </svg>
-                  </button>
-                </h2>
-                <div
-                  id="accordion-collapse-body-2"
-                  class="hidden mt-3 mb-4"
-                  aria-labelledby="accordion-collapse-heading-2"
-                >
-                  <div
-                    class="p-5 border border-b-0 border-gray-200 dark:border-gray-700 dark:bg-gray-900 rounded-xl flex flex-row justify-stretch"
-                  >
-                    <div class="basis-1/3 m-3">
-                      <img
-                        src="static/img/download.jpg"
-                        alt="Lawyer Image"
-                        class="h-28 w-28"
-                      />
-                    </div>
-                    <div class="flex flex-col basis-2/3 me-20 justify-around">
-                      <p class="text-gray-500 dark:text-gray-400"></p>
-                      <p class="text-gray-300">Sam Manekshaw</p>
-                      <p class="text-gray-500"><span>Fees : </span> 10,000/-</p>
-                      <input
-                        type="button"
-                        value="HIRE"
-                        class="text-gray-400 bg-slate-800 rounded-3xl"
-                      />
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- ############################Accordion-2 ############################## -->
             </div>
           </div>
+          <!-- ############################ Modal -e ############################## -->
+
+          <!-- ############################ Bidding -s ############################## -->
+
+          <div
+            class="mx-6 mb-3 p-6 bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700"
+          >
+            <a href="#">
+              <h5
+                class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
+              >
+                "Smith v. Jones: Case No. 12345 - In the Circuit Court of
+                Example County, State of Fictionland"
+              </h5>
+            </a>
+            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">
+              In the matter of Smith v. Jones, plaintiff John Smith alleges that
+              defendant Sarah Jones breached a contract for the sale of a
+              vintage automobile. Mr. Smith contends that Ms. Jones failed to
+              deliver the vehicle within the agreed-upon timeframe and seeks
+              damages for breach of contract and associated costs incurred. Ms.
+              Jones disputes these claims, asserting that unforeseen
+              circumstances beyond her control delayed the delivery and that Mr.
+              Smith's demands are unreasonable.
+            </p>
+            <a
+              href="all_applicants.do"
+              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              Show Applicants
+              <svg
+                class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </a>
+          </div>
+          <div class="text-end p-4">
+            <a
+              href="bids.do"
+              class="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            >
+              View all bids
+              <svg
+                class="rtl:rotate-180 w-3.5 h-3.5 ms-2"
+                aria-hidden="true"
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 14 10"
+              >
+                <path
+                  stroke="currentColor"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M1 5h12m0 0L9 1m4 4L9 9"
+                />
+              </svg>
+            </a>
+          </div>
+          <!-- ############################ Bidding -e ############################## -->
         </div>
 
         <!-- Third div -->

@@ -29,7 +29,7 @@
           <h5
             class="text-4xl font-bold leading-none text-gray-900 dark:text-white"
           >
-            All Lawyers
+            All Applicants
           </h5>
         </div>
         <div class="flow-root">
@@ -58,7 +58,6 @@
                         Chandragupta Maurya
                       </p>
                     </div>
-
                     <div class="flex flex-row leading-normal">
                       <h5
                         class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
@@ -102,12 +101,6 @@
                       >
                         HIRE
                       </button>
-                      <!-- <button
-                        type="button"
-                        class="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-                      >
-                        HIRE
-                      </button> -->
                     </div>
                   </div>
                 </div>
@@ -137,7 +130,6 @@
                         Chandragupta Maurya
                       </p>
                     </div>
-
                     <div class="flex flex-row leading-normal">
                       <h5
                         class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
@@ -173,6 +165,14 @@
                       >
                         10,000/-
                       </p>
+                    </div>
+                    <div class="flex flex-row leading-normal">
+                      <button
+                        type="button"
+                        class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                      >
+                        HIRE
+                      </button>
                     </div>
                   </div>
                 </div>
@@ -202,7 +202,6 @@
                         Chandragupta Maurya
                       </p>
                     </div>
-
                     <div class="flex flex-row leading-normal">
                       <h5
                         class="text-2xl font-bold tracking-tight text-gray-900 dark:text-white"
@@ -238,6 +237,14 @@
                       >
                         10,000/-
                       </p>
+                    </div>
+                    <div class="flex flex-row leading-normal">
+                      <button
+                        type="button"
+                        class="text-white bg-gradient-to-r from-purple-500 via-purple-600 to-purple-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-purple-300 dark:focus:ring-purple-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+                      >
+                        HIRE
+                      </button>
                     </div>
                   </div>
                 </div>
