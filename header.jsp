@@ -41,7 +41,10 @@
             </div> -->
 
             <div class="flex md:order-2">
-                <img class="w-14 h-14 rounded-full ml-3" src="static/media/images/signup/user_default.png" alt="Default avatar">
+                <a href="profile.do">
+
+                    <img class="w-14 h-14 rounded-full ml-3" src="static/media/images/signup/user_default.png" alt="Default avatar" id="proico">
+                </a>
             </div>
             <div class="items-center justify-between hidden w-full md:flex md:w-auto md:order-1" id="navbar-search">
                 <div class="relative mt-3 md:hidden">
@@ -80,3 +83,10 @@
         </div>
     </nav>
 </header>
+<script>
+    const proico = document.querySelector("#proico");
+    proico.addEventListener("mouseover", () => {proico.classList.add("fa-beat")});
+    proico.addEventListener("mouseout", () => {proico.classList.remove("fa-beat")}
+    );
+  </script>;
+  

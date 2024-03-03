@@ -31,7 +31,6 @@ public class User {
     private Integer successRatio;
     private Status status;
     private String uid;
-    
 
     private String otp;
 
@@ -40,7 +39,7 @@ public class User {
 
     }
 
-    public User(String name, String email, String password, String phone, State state, UserType userType,String otp) {
+    public User(String name, String email, String password, String phone, State state, UserType userType, String otp) {
         this.name = name;
         this.email = email;
         this.password = password;
@@ -50,50 +49,77 @@ public class User {
         this.otp = otp;
     }
 
-    public User(String password,String email) {
+    public User(String password, String email) {
         this.password = password;
         this.email = email;
     }
 
     // ################### Other Methods #########################
-    public static boolean checkEmailExists(String email){
+    public static boolean checkEmailExists(String email) {
         boolean flag = false;
-        try{
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost/lbdb?user=root&password=1234");
             String query = "select user_id from users where email=?";
             PreparedStatement ps = con.prepareStatement(query);
             ps.setString(1, email);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 flag = true;
                 System.out.println("Duplicate entry found");
             }
             con.close();
-        }catch(ClassNotFoundException|SQLException e){
+        } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return flag;
     }
-    public static boolean checkPhoneExists(String phone){
+    public static int checkEmail(String email) {
+        int result = 0;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/lbdb?user=root&password=1234");
+            String query = "select * from users where email=?";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, email);
+            ResultSet rs = ps.executeQuery();
+            while (rs.next()) {
+                if(rs.getInt(19)==1){
+                    result = 1;
+                    System.out.println("Verified Email found ");
+                }else if(rs.getInt(19)==2){
+                    result = 2;
+                    System.out.println("Unverified Email found ");
+                }
+            }
+            con.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        System.out.println(result);
+        return result;
+    }
+    
+    public static boolean checkPhoneExists(String phone) {
         boolean flag = false;
-        try{
+        try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lbdb?user=root&password=1234");
             String query = "select user_id from users where phone=?";
             PreparedStatement ps = con.prepareStatement(query);
-            ps.setString(1,phone);
+            ps.setString(1, phone);
             ResultSet rs = ps.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 System.out.println("Entry found");
                 flag = true;
             }
             con.close();
-        }catch(SQLException|ClassNotFoundException e){
+        } catch (SQLException | ClassNotFoundException e) {
             e.printStackTrace();
         }
         return flag;
     }
+
     public static int verifyEmail(String email, String otp) {
         int x = -1;
         try {
@@ -112,19 +138,21 @@ public class User {
                 System.out.println("email verification successful");
                 System.out.println("Updating flag value to true");
                 x = 1;
-            }else{
+            } else {
                 x = 0;
                 System.out.println("You are already verified");
             }
-            
+
             con.close();
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
         }
         return x;
     }
-    public boolean signInUser() {
-        boolean flag = false;
+
+    public int signInUser() {
+        int flag =0;
+        // boolean flag = false;
         // Date date = new Date().getTime()
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -135,7 +163,24 @@ public class User {
             ps.setString(2, email);
             ResultSet rs = ps.executeQuery();
             while (rs.next()) {
-                flag = true;
+                if (rs.getInt(19) == 1) {
+                    
+                    // Update the user object with all the variables
+                    userId = rs.getInt(1);
+                    name = rs.getString(2);
+                    email = rs.getString(3);
+                    password = rs.getString(4);
+                    phone = rs.getString(5);
+                    // address = rs.getString(6);
+                    state = new State(rs.getInt(8));
+                    userType = new UserType(rs.getInt(10));
+                    joinedOn = rs.getTimestamp(15);
+                    // status = new Status(rs.getInt(19));
+
+                    flag = 1;
+                }else{
+                    flag = 2;
+                }
             }
             con.close();
         } catch (SQLException | ClassNotFoundException e) {
@@ -143,7 +188,6 @@ public class User {
         }
         return flag;
     }
-
 
     public boolean signUpUser() {
         boolean flag = false;
@@ -153,14 +197,15 @@ public class User {
             Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/lbdb?user=root&password=1234");
             String query = "insert into users (name,email,password,phone,state_id,user_type_id,joined_on,otp) values (?,?,?,?,?,?,?,?)";
             PreparedStatement ps = con.prepareStatement(query);
-            System.out.println(name + " " + email + " " + password + " " + phone + " " + state.getStateId() + userType.getUserTypeId() +" "+ AppUtility.getTodayDateTime());
+            System.out.println(name + " " + email + " " + password + " " + phone + " " + state.getStateId()
+                    + userType.getUserTypeId() + " " + AppUtility.getTodayDateTime());
             ps.setString(1, name);
             ps.setString(2, email);
             ps.setString(3, password);
             ps.setString(4, phone);
             ps.setInt(5, state.getStateId());
-            ps.setInt(6,  userType.getUserTypeId());
-            ps.setTimestamp(7,AppUtility.getTodayDateTime());
+            ps.setInt(6, userType.getUserTypeId());
+            ps.setTimestamp(7, AppUtility.getTodayDateTime());
             ps.setString(8, otp);
 
             int res = ps.executeUpdate();
@@ -182,6 +227,7 @@ public class User {
     public void setOtp(String otp) {
         this.otp = otp;
     }
+
     public Integer getUserId() {
         return userId;
     }

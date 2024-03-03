@@ -2,6 +2,11 @@ package models;
 
 import java.sql.Date;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
+
 public class Bid {
     // ################### Properties #########################
     private Integer bidId;
@@ -18,6 +23,39 @@ public class Bid {
     // ################### Constructors #########################
     public Bid() {
 
+    }
+
+   
+
+    public Bid(String issue, String description, Integer budget, Date startDate, Date deadline) {
+        this.issue = issue;
+        this.description = description;
+        this.budget = budget;
+        this.startDate = startDate;
+        this.deadline = deadline;
+    }
+
+
+
+    // ################### Other Methods #########################
+    public boolean saveBidDetails(Integer userId) {
+        boolean flag = false;
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/lbdb?user=root&password=1234");
+            String query = "insert into bids (issue, description, budget, start_date,deadline, user_id) value (?, ?, ?,?, ?, ?)";
+            PreparedStatement ps = con.prepareStatement(query);
+            ps.setString(1, issue);
+            ps.setString(2, description);
+            ps.setInt(3, budget);
+            ps.setDate(4, startDate);
+            ps.setDate(5, deadline);
+            ps.setInt(6, userId);
+            con.close();
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+        }
+        return flag;
     }
 
     // ################### Getters-Setters #########################

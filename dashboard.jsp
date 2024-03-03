@@ -413,8 +413,8 @@
                   </div>
                   <!-- Modal body -->
                   <div class="p-4 md:p-5">
-                    <form class="space-y-4" action="#">
-                      <div>
+                    <form class="space-y-4" action="save_bid_details.do" method="post">
+                      <!-- <div>
                         <label
                           for="name"
                           class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -428,8 +428,8 @@
                           placeholder="Sunil Kumar Batre"
                           required
                         />
-                      </div>
-                      <div>
+                      </div> -->
+                      <!-- <div>
                         <label
                           for="email"
                           class="text-start ps-2 block mb-2 text-sm font-medium text-gray-900 dark:text-white"
@@ -443,7 +443,7 @@
                           placeholder="name@company.com"
                           required
                         />
-                      </div>
+                      </div> -->
                       <div>
                         <label
                           for="issue"

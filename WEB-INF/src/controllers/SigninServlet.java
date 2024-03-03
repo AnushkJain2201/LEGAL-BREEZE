@@ -11,13 +11,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.ServletContext;
 
 import utils.AppUtility;
-import utils.EmailSender;
-import utils.OTPGenerator;
-
-import models.State;
 import models.User;
-import models.UserType;
-
 
 @WebServlet("/signin.do")
 public class SigninServlet extends HttpServlet {
@@ -29,7 +23,6 @@ public class SigninServlet extends HttpServlet {
 
     public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
         HttpSession session = request.getSession();
-
         String responseToken = request.getParameter("g-recaptcha-response");
 
         // #######################################
@@ -41,7 +34,7 @@ public class SigninServlet extends HttpServlet {
         boolean flag = AppUtility.checkGoogleRecaptchaResponse(recaptchaURL, responseToken, secretKey);
         // #######################################
 
-        // System.out.println(flag);
+        // System.out.println("Flag result for recaptcha"+flag);
         String nextURL = "signin.jsp";
 
         if (flag) {
@@ -49,12 +42,22 @@ public class SigninServlet extends HttpServlet {
             String password = request.getParameter("password");
             String email = request.getParameter("email");
 
+            // System.out.println(password);
+            // System.out.println(email);
             // String otp = OTPGenerator.generateOTP();
             // System.out.println("Saving otp at the db for future email verification"+otp);
             User user = new User(password, email);
-            flag = user.signInUser();
-            if (flag) {
+            int result = user.signInUser();
+            System.out.println("Flag result for sql query" + flag);
+            if (result == 1) {
+                session.setAttribute("user", user);
                 nextURL = "dashboard.jsp";
+            }else if(result == 2){
+                // Please verify your email . 
+                // Provide verificaion link
+
+            }else if (result == 0){
+                // Invalid email or password 
             }
         }
         request.getRequestDispatcher(nextURL).forward(request, response);

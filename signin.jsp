@@ -35,7 +35,8 @@
               id="email"
               required
             />
-            <label class="input-labels" for="email">Email</label>
+            <label class="input-labels" for="email" id="emllbl">Email</label>
+            <p hidden>Invalid email</p>
           </div>
           <div class="input-group">
             <input
@@ -44,6 +45,7 @@
               name="password"
               id="password"
               required
+              hidden
             />
             <label class="input-labels" for="password">Password</label>
           </div>
@@ -58,6 +60,7 @@
         </form>
       </div>
     </main>
-    <script src="static/js/signup.js"></script>
+    <script src="static/js/signin.js"></script>
+    
   </body>
 </html>
