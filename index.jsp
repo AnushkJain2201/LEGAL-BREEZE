@@ -22,8 +22,8 @@
     <c:import url="/header.jsp" />
 
     <main>
-      <h1>9 Days of working implemented.</h1>
-        <h2>To start from day 10...</h2>
+      <h1>12 Days of working implemented.</h1>
+        <h2>To start from day 13...</h2>
       <div id="default-carousel" class="relative w-full" data-carousel="slide">
         <!-- Carousel wrapper -->
         <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
