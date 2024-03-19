@@ -30,7 +30,8 @@ let phoneFlag = false;
 
 let finalFlag = false;
 signupForm.addEventListener("submit", (e) => {
-  if (finalFlag) {
+  finalFlag = fullnameFlag && emailFlag && passwordFlag && phoneFlag; 
+  if (!finalFlag) {
     e.preventDefault();
     console.log("Prevented the default behavior");
   }
