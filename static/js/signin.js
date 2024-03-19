@@ -1,4 +1,3 @@
-// console.log("chala");
 const inputFields = document.querySelectorAll(".input-fields");
 const inputLabels = document.querySelectorAll(".input-labels");
 const inputGroup = document.querySelectorAll(".input-group");
