@@ -21,7 +21,7 @@
   <body class="bg-gray-900 md:px-24 px-0">
     <c:import url="/header.jsp" />
 
-    <main>
+    <main class="text-slate-100">
         <h1>This is signup success page</h1>
         <h2>A verification link has been sent to you at your email. Kindly click on the link to verify yourself as a member of LEGAL-BREEZE.</h2>
     </main>
