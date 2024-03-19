@@ -396,6 +396,7 @@ create table users
     success_ratio int null,
     status_id int not null default 2,
     uid char(12) null,
+    otp char(6) null,
     constraint success_ratio_check check (success_ratio>=0 AND  success_ratio<=100) ,
     constraint fk_users_states foreign key (state_id) references states (state_id),
     constraint fk_users_genders foreign key (gender_id) references genders (gender_id),
